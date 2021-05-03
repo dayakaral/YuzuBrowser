@@ -15,6 +15,7 @@
             <option value="$PROJECT_DIR$/buildSrc" />
             <option value="$PROJECT_DIR$/languages" />
             <option value="$PROJECT_DIR$/legacy" />
+            <option value="$PROJECT_DIR$/libfire" />
             <option value="$PROJECT_DIR$/libraries" />
             <option value="$PROJECT_DIR$/libraries/asyncpermissions" />
             <option value="$PROJECT_DIR$/libraries/colorpicker" />

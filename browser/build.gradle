@@ -19,6 +19,7 @@ apply plugin: 'kotlin-android'
 apply plugin: 'kotlin-kapt'
 apply plugin: 'dagger.hilt.android.plugin'
 
+
 android {
     compileSdkVersion Build.compile_sdk_version
 
@@ -54,6 +55,7 @@ repositories {
 
 dependencies {
     implementation fileTree(dir: 'libs', include: ['*.jar'])
+
 
     testImplementation Libs.junit
     androidTestImplementation Libs.espressoCore
@@ -96,4 +98,5 @@ dependencies {
 
     implementation Dagger.hilt
     kapt Dagger.hiltCompiler
+    implementation 'com.google.firebase:firebase-dynamic-links:19.1.1'
 }

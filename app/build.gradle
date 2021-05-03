@@ -64,8 +64,7 @@ android {
         debug {
             ext.enableCrashlytics = false
             ext.alwaysUpdateBuildId = false
-            applicationIdSuffix ".debug"
-            resValue "string", "package_name", "${defaultConfig.applicationId}.debug"
+            resValue "string", "package_name", "${defaultConfig.applicationId}"
             manifestPlaceholders = [crashlyticsCollectionEnabled:"false"]
         }
     }
@@ -120,6 +119,8 @@ repositories {
 
 dependencies {
     implementation fileTree(dir: 'libs', include: ['*.jar'])
+    implementation 'com.google.firebase:firebase-dynamic-links:19.1.1'
+    implementation 'com.google.firebase:firebase-analytics:18.0.3'
     testImplementation Libs.junit
     androidTestImplementation Libs.espressoCore
 
@@ -159,3 +160,5 @@ dependencies {
     implementation 'com.google.firebase:firebase-crashlytics-ktx'
     implementation 'com.google.firebase:firebase-analytics-ktx'
 }
+
+apply plugin: 'com.google.gms.google-services'

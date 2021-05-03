@@ -13,5 +13,6 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
+include ':libfire'
 
 include ':app', ':libraries:floatingactionbutton', ':libraries:colorpicker', ':libraries:asyncpermissions', ':legacy', ':module:ui', ':module:core', ':languages', ':module:webview', ':browser', ':module:favicon', ':module:download', ':module:adblock', ':module:bookmark', ':module:connecter', ':module:history', ':module:search'

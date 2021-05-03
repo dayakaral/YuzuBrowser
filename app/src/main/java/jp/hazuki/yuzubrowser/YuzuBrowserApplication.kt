@@ -19,8 +19,11 @@ package jp.hazuki.yuzubrowser
 import android.app.Application
 import android.content.Context
 import android.content.ContextWrapper
+import android.util.Log
 import android.webkit.WebView
 import androidx.appcompat.app.AppCompatDelegate
+import com.google.firebase.FirebaseApp
+import com.google.firebase.analytics.FirebaseAnalytics
 import com.squareup.moshi.Moshi
 import dagger.hilt.android.HiltAndroidApp
 import jp.hazuki.yuzubrowser.adblock.registerAdBlockNotification
@@ -54,7 +57,8 @@ class YuzuBrowserApplication : Application(), BrowserApplication {
         super.onCreate()
         registerDownloadNotification()
         registerAdBlockNotification()
-
+        FirebaseApp.initializeApp(this)
+        val analytics = FirebaseAnalytics.getInstance(this)
         Logger.d(TAG, "onCreate()")
         browserState.isNeedLoad = false
         ErrorReportServer.initialize(this)

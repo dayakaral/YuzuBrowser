@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "557423776687",
+    "project_id": "yuzubrowser-61ede",
+    "storage_bucket": "yuzubrowser-61ede.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:557423776687:android:60c8fe511e839b84ddd55a",
+        "android_client_info": {
+          "package_name": "jp.hazuki.yuzubrowser.debug"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "557423776687-k837hup7mm59hca9n31dk9eemgcevg6g.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAxbR5KdRp9voNlL7a6BI08kde6FhWxNYo"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "557423776687-k837hup7mm59hca9n31dk9eemgcevg6g.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

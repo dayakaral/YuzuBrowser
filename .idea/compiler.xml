@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="CompilerConfiguration">
+    <bytecodeTargetLevel target="1.7">
+      <module name="YuzuBrowser.app" target="1.8" />
+      <module name="YuzuBrowser.browser" target="1.8" />
+      <module name="YuzuBrowser.buildSrc" target="1.8" />
+      <module name="YuzuBrowser.languages" target="1.8" />
+      <module name="YuzuBrowser.legacy" target="1.8" />
+      <module name="YuzuBrowser.libraries.asyncpermissions" target="1.8" />
+      <module name="YuzuBrowser.libraries.colorpicker" target="1.8" />
+      <module name="YuzuBrowser.libraries.floatingactionbutton" target="1.8" />
+      <module name="YuzuBrowser.module.adblock" target="1.8" />
+      <module name="YuzuBrowser.module.bookmark" target="1.8" />
+      <module name="YuzuBrowser.module.connecter" target="1.8" />
+      <module name="YuzuBrowser.module.core" target="1.8" />
+      <module name="YuzuBrowser.module.download" target="1.8" />
+      <module name="YuzuBrowser.module.favicon" target="1.8" />
+      <module name="YuzuBrowser.module.history" target="1.8" />
+      <module name="YuzuBrowser.module.search" target="1.8" />
+      <module name="YuzuBrowser.module.ui" target="1.8" />
+      <module name="YuzuBrowser.module.webview" target="1.8" />
+    </bytecodeTargetLevel>
+  </component>
+</project>

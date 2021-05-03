@@ -20,6 +20,7 @@ import android.content.ActivityNotFoundException;
 import android.content.Context;
 import android.content.Intent;
 import android.net.Uri;
+import android.util.Log;
 import android.webkit.URLUtil;
 
 import java.util.regex.Matcher;
@@ -74,6 +75,7 @@ public class WebUtils {
         Intent intent = new Intent(Intent.ACTION_SEND);
         intent.setType("text/plain");
         intent.putExtra(Intent.EXTRA_TEXT, url);
+
         if (title != null)
             intent.putExtra(Intent.EXTRA_SUBJECT, title);
         return intent;
@@ -81,12 +83,22 @@ public class WebUtils {
 
     public static void shareWeb(Context context, String url, String title) {
         if (url == null) return;
+        Intent generateIntent = context.getPackageManager()
+            .getLaunchIntentForPackage("com.hddev.yuzulinkgenerator");
 
-        Intent intent = createShareWebIntent(url, title);
-        try {
-            context.startActivity(Intent.createChooser(intent, context.getText(R.string.share)));
-        } catch (ActivityNotFoundException e) {
-            e.printStackTrace();
+        if (generateIntent != null) {
+            generateIntent.setFlags(0);
+            generateIntent.putExtra(Intent.EXTRA_TEXT, url);
+            context.startActivity(generateIntent);
+        }
+        else {
+
+            Intent intent = createShareWebIntent(url, title);
+            try {
+                context.startActivity(Intent.createChooser(intent, context.getText(R.string.share)));
+            } catch (ActivityNotFoundException e) {
+                e.printStackTrace();
+            }
         }
     }
 

@@ -36,6 +36,7 @@ import androidx.print.PrintHelper
 import jp.hazuki.yuzubrowser.adblock.ui.original.AdBlockActivity
 import jp.hazuki.yuzubrowser.adblock.ui.original.AddAdBlockDialog
 import jp.hazuki.yuzubrowser.bookmark.view.BookmarkActivity
+import jp.hazuki.yuzubrowser.browser.dynamiclink.createlink.CreateDLinks
 import jp.hazuki.yuzubrowser.core.utility.extensions.clipboardText
 import jp.hazuki.yuzubrowser.core.utility.log.ErrorReport
 import jp.hazuki.yuzubrowser.core.utility.utils.ImageUtils
@@ -920,6 +921,9 @@ class ActionExecutor(
                     .show(controller.activity.supportFragmentManager, "add white page")
             SingleAction.SHARE_WEB -> {
                 val tab = controller.getTab(actionTarget)
+//                val dLinkBuilder = CreateDLinks.getSingleton()
+//                dLinkBuilder.createDynamicLink(tab.url, tab.title)
+
                 WebUtils.shareWeb(controller.activity, tab.url, tab.title)
             }
             SingleAction.OPEN_OTHER -> WebUtils.openInOtherApp(controller.activity, controller.getTab(actionTarget).url)
