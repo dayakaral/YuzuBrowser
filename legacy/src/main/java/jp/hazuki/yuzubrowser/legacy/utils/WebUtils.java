@@ -83,23 +83,26 @@ public class WebUtils {
 
     public static void shareWeb(Context context, String url, String title) {
         if (url == null) return;
-        Intent generateIntent = context.getPackageManager()
-            .getLaunchIntentForPackage("com.hddev.yuzulinkgenerator");
 
-        if (generateIntent != null) {
-            generateIntent.setFlags(0);
-            generateIntent.putExtra(Intent.EXTRA_TEXT, url);
-            context.startActivity(generateIntent);
+        Intent intent = createShareWebIntent(url, title);
+        try {
+            context.startActivity(Intent.createChooser(intent, context.getText(R.string.share)));
+        } catch (ActivityNotFoundException e) {
+            e.printStackTrace();
         }
-        else {
 
-            Intent intent = createShareWebIntent(url, title);
-            try {
-                context.startActivity(Intent.createChooser(intent, context.getText(R.string.share)));
-            } catch (ActivityNotFoundException e) {
-                e.printStackTrace();
-            }
-        }
+//        Intent generateIntent = context.getPackageManager()
+//            .getLaunchIntentForPackage("com.hddev.yuzulinkgenerator");
+//
+//        if (generateIntent != null) {
+//            generateIntent.setFlags(0);
+//            generateIntent.putExtra(Intent.EXTRA_TEXT, url);
+//            context.startActivity(generateIntent);
+//        }
+//        else {
+//
+//
+//        }
     }
 
     public static Intent createOpenInOtherAppIntent(String url) {

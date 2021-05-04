@@ -19,11 +19,15 @@ package jp.hazuki.yuzubrowser
 import android.app.Application
 import android.content.Context
 import android.content.ContextWrapper
+import android.net.Uri
 import android.util.Log
 import android.webkit.WebView
 import androidx.appcompat.app.AppCompatDelegate
 import com.google.firebase.FirebaseApp
 import com.google.firebase.analytics.FirebaseAnalytics
+import com.google.firebase.dynamiclinks.ktx.dynamicLink
+import com.google.firebase.dynamiclinks.ktx.dynamicLinks
+import com.google.firebase.ktx.Firebase
 import com.squareup.moshi.Moshi
 import dagger.hilt.android.HiltAndroidApp
 import jp.hazuki.yuzubrowser.adblock.registerAdBlockNotification
@@ -59,6 +63,15 @@ class YuzuBrowserApplication : Application(), BrowserApplication {
         registerAdBlockNotification()
         FirebaseApp.initializeApp(this)
         val analytics = FirebaseAnalytics.getInstance(this)
+        val dynamicLink = Firebase.dynamicLinks.dynamicLink {
+            link = Uri.parse("https://www.example.com/")
+            domainUriPrefix = "https://example.page.link"
+            // Open links with this app on Android
+
+            // Open links with com.example.ios on iOS
+
+        }
+        val dynamicUri = dynamicLink.uri
         Logger.d(TAG, "onCreate()")
         browserState.isNeedLoad = false
         ErrorReportServer.initialize(this)

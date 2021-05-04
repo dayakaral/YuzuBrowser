@@ -56,6 +56,9 @@ repositories {
 dependencies {
     implementation fileTree(dir: 'libs', include: ['*.jar'])
 
+    implementation 'com.google.firebase:firebase-dynamic-links-ktx'
+    implementation 'com.google.firebase:firebase-analytics-ktx'
+    implementation 'com.google.firebase:firebase-core:18.0.3'
 
     testImplementation Libs.junit
     androidTestImplementation Libs.espressoCore
@@ -98,5 +101,5 @@ dependencies {
 
     implementation Dagger.hilt
     kapt Dagger.hiltCompiler
-    implementation 'com.google.firebase:firebase-dynamic-links:19.1.1'
+
 }

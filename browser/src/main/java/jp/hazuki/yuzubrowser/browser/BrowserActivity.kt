@@ -27,9 +27,11 @@ import android.content.res.Resources
 import android.gesture.GestureOverlayView
 import android.graphics.Color
 import android.media.AudioManager
+import android.net.Uri
 import android.os.*
 import android.print.PrintManager
 import android.text.TextUtils
+import android.util.Log
 import android.view.*
 import android.webkit.*
 import android.widget.*
@@ -40,6 +42,8 @@ import androidx.documentfile.provider.DocumentFile
 import androidx.webkit.WebViewCompat
 import androidx.webkit.WebViewFeature
 import com.google.android.material.appbar.AppBarLayout
+import com.google.firebase.dynamiclinks.ktx.dynamicLinks
+import com.google.firebase.ktx.Firebase
 import com.squareup.moshi.Moshi
 import dagger.hilt.android.AndroidEntryPoint
 import jp.hazuki.asyncpermissions.AsyncPermissions
@@ -247,6 +251,29 @@ class BrowserActivity : BrowserBaseActivity(), BrowserController, FinishAlertDia
         uiController = SystemUiController.create(window)
         //Crash workaround for pagePaddingHeight...
         binding.toolbarPadding.visibility = View.GONE
+        var link: String = ""
+        Firebase.dynamicLinks
+            .getDynamicLink(intent)
+            .addOnSuccessListener(this) { pendingDynamicLinkData ->
+                // Get deep link from result (may be null if no link is found)
+                var deepLink: Uri? = null
+                if (pendingDynamicLinkData != null) {
+                    deepLink = pendingDynamicLinkData.link
+                    link = deepLink.toString();
+                }
+
+
+            }
+            .addOnFailureListener(this) { e -> Log.w(TAG, "getDynamicLink:onFailure", e) }
+
+        if (link.isNotEmpty()) {
+            //open page
+            /*
+             * for simplicity we will provide webpage link while creating
+             * the dynamicurl and handleIntent Activity will automatically
+             * load the url we provided.
+             */
+        }
 
         actionController = ActionExecutor(this, faviconManager)
         browserState = (applicationContext as BrowserApplication).browserState
